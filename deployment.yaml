@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: single-spa-people
+spec:
+  selector:
+    matchLabels:
+      app: single-spa-people
+  template:
+    metadata:
+      labels:
+        app: single-spa-people
+    spec:
+      containers:
+      - name: single-spa-people
+        image: ryanisfluffy/single-spa-people:v0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 8080
